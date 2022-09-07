@@ -1,6 +1,6 @@
 FROM node:14
 
-WORKDIR /usr/src/simple
+WORKDIR /usr/src/simple/
 
 COPY packages.json ./
 
