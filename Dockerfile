@@ -1,21 +1,12 @@
 FROM node:12.18.3
+WORKDIR /
+# Remember, `docker history` will show this line exactly as here,
+# including the credentials.
+RUN git clone https://username:password@github.com/username/Portfolio.git
 
-# This also creates the directory if it doesn't exist.
-# (This frequently is "/app".)
+# Change directories into what got checked out.
 WORKDIR /Portfolio
-
-# We ran `git clone` on the host outside of Docker.
-# Copy in only the files we need to install dependencies.
-COPY package*.json ./
+# All of the files are already there, so we only need to
 RUN npm install
-
-# Now copy in the rest of the application.
-# (`node_modules` should be included in `.dockerignore`.)
-COPY . ./
-# RUN npm build
-
-# Standard metadata to start the application.
 EXPOSE 8080
 CMD ["pm2", "start", "./bin/ww"]
-# (Do you actually need a process manager inside a Docker container?)
-# CMD ["node", "./bin/ww"]
