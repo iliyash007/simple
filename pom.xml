@@ -13,7 +13,7 @@
   <url>http://www.example.com</url>
   
   <!-- Its a simple demo for github webhook -->
-  <!-- Its a simple demo for github webhook -->
+  
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
